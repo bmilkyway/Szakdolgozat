@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SD_DB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SD_DBStoreContainer">
+    <EntitySet Name="Felhasznalok" EntityType="SD_DB.Store.Felhasznalok" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kinezetek" EntityType="SD_DB.Store.Kinezetek" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TargyInfok" EntityType="SD_DB.Store.TargyInfok" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Targyak" EntityType="SD_DB.Store.Targyak" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FelhasznaloKinezet" Association="SD_DB.Store.FelhasznaloKinezet">
+      <End Role="Felhasznalo" EntitySet="Felhasznalok" />
+      <End Role="Kinezet" EntitySet="Kinezetek" />
+    </AssociationSet>
+    <AssociationSet Name="FelhasznaloTargy" Association="SD_DB.Store.FelhasznaloTargy">
+      <End Role="Felhasznalo" EntitySet="Felhasznalok" />
+      <End Role="Targy" EntitySet="Targyak" />
+    </AssociationSet>
+    <AssociationSet Name="TargyTargyInfo" Association="SD_DB.Store.TargyTargyInfo">
+      <End Role="Targy" EntitySet="Targyak" />
+      <End Role="TargyInfo" EntitySet="TargyInfok" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Felhasznalok">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Felhasznalonev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Jelszo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SzulDat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefonszam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Lakcim" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Kinezet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kinezetek">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kulso" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Belso" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TargyInfok">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tipus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Kredit" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Kovetelmeny" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ponthatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Vizsga" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Targyak">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ZH" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Beadando" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pluszpont" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TargyID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Felhasznalo_Id" Type="int" Nullable="false" />
+    <Property Name="TargyInfo_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FelhasznaloKinezet">
+    <End Role="Felhasznalo" Type="SD_DB.Store.Felhasznalok" Multiplicity="*" />
+    <End Role="Kinezet" Type="SD_DB.Store.Kinezetek" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Kinezet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Felhasznalo">
+        <PropertyRef Name="Kinezet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FelhasznaloTargy">
+    <End Role="Felhasznalo" Type="SD_DB.Store.Felhasznalok" Multiplicity="1" />
+    <End Role="Targy" Type="SD_DB.Store.Targyak" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Felhasznalo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Targy">
+        <PropertyRef Name="Felhasznalo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TargyTargyInfo">
+    <End Role="Targy" Type="SD_DB.Store.Targyak" Multiplicity="*" />
+    <End Role="TargyInfo" Type="SD_DB.Store.TargyInfok" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TargyInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Targy">
+        <PropertyRef Name="TargyInfo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SD_DB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="SD_DBContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Felhasznalok" EntityType="SD_DB.Felhasznalo" />
+          <EntitySet Name="Kinezetek" EntityType="SD_DB.Kinezet" />
+          <EntitySet Name="TargyInfok" EntityType="SD_DB.TargyInfo" />
+          <EntitySet Name="Targyak" EntityType="SD_DB.Targy" />
+          <AssociationSet Name="FelhasznaloKinezet" Association="SD_DB.FelhasznaloKinezet">
+            <End Role="Felhasznalo" EntitySet="Felhasznalok" />
+            <End Role="Kinezet" EntitySet="Kinezetek" />
+          </AssociationSet>
+          <AssociationSet Name="FelhasznaloTargy" Association="SD_DB.FelhasznaloTargy">
+            <End Role="Felhasznalo" EntitySet="Felhasznalok" />
+            <End Role="Targy" EntitySet="Targyak" />
+          </AssociationSet>
+          <AssociationSet Name="TargyTargyInfo" Association="SD_DB.TargyTargyInfo">
+            <End Role="Targy" EntitySet="Targyak" />
+            <End Role="TargyInfo" EntitySet="TargyInfok" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Felhasznalo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Felhasznalonev" Type="String" Nullable="false" />
+          <Property Name="Jelszo" Type="String" Nullable="false" />
+          <Property Name="Nev" Type="String" Nullable="false" />
+          <Property Name="SzulDat" Type="String" Nullable="false" />
+          <Property Name="Telefonszam" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Lakcim" Type="String" Nullable="false" />
+          <NavigationProperty Name="Kinezet" Relationship="SD_DB.FelhasznaloKinezet" FromRole="Felhasznalo" ToRole="Kinezet" />
+          <NavigationProperty Name="Targy" Relationship="SD_DB.FelhasznaloTargy" FromRole="Felhasznalo" ToRole="Targy" />
+        </EntityType>
+        <EntityType Name="Kinezet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kulso" Type="String" Nullable="false" />
+          <Property Name="Belso" Type="String" Nullable="false" />
+          <NavigationProperty Name="Felhasznalo" Relationship="SD_DB.FelhasznaloKinezet" FromRole="Kinezet" ToRole="Felhasznalo" />
+        </EntityType>
+        <EntityType Name="TargyInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Targy" Relationship="SD_DB.TargyTargyInfo" FromRole="TargyInfo" ToRole="Targy" />
+          <Property Name="Nev" Type="String" Nullable="false" />
+          <Property Name="Tipus" Type="String" Nullable="false" />
+          <Property Name="Kredit" Type="String" Nullable="false" />
+          <Property Name="Kovetelmeny" Type="String" Nullable="false" />
+          <Property Name="Ponthatar" Type="String" Nullable="false" />
+          <Property Name="Vizsga" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Targy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Felhasznalo" Relationship="SD_DB.FelhasznaloTargy" FromRole="Targy" ToRole="Felhasznalo" />
+          <NavigationProperty Name="TargyInfo" Relationship="SD_DB.TargyTargyInfo" FromRole="Targy" ToRole="TargyInfo" />
+          <Property Name="Nev" Type="String" Nullable="false" />
+          <Property Name="ZH" Type="String" Nullable="false" />
+          <Property Name="Beadando" Type="String" Nullable="false" />
+          <Property Name="Pluszpont" Type="String" Nullable="false" />
+          <Property Name="TargyID" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="FelhasznaloKinezet">
+          <End Type="SD_DB.Felhasznalo" Role="Felhasznalo" Multiplicity="1" />
+          <End Type="SD_DB.Kinezet" Role="Kinezet" Multiplicity="1" />
+        </Association>
+        <Association Name="FelhasznaloTargy">
+          <End Type="SD_DB.Felhasznalo" Role="Felhasznalo" Multiplicity="1" />
+          <End Type="SD_DB.Targy" Role="Targy" Multiplicity="*" />
+        </Association>
+        <Association Name="TargyTargyInfo">
+          <End Type="SD_DB.Targy" Role="Targy" Multiplicity="1" />
+          <End Type="SD_DB.TargyInfo" Role="TargyInfo" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SD_DBStoreContainer" CdmEntityContainer="SD_DBContainer">
+    <EntitySetMapping Name="Felhasznalok">
+      <EntityTypeMapping TypeName="IsTypeOf(SD_DB.Felhasznalo)">
+        <MappingFragment StoreEntitySet="Felhasznalok">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Felhasznalonev" ColumnName="Felhasznalonev" />
+          <ScalarProperty Name="Jelszo" ColumnName="Jelszo" />
+          <ScalarProperty Name="Nev" ColumnName="Nev" />
+          <ScalarProperty Name="SzulDat" ColumnName="SzulDat" />
+          <ScalarProperty Name="Telefonszam" ColumnName="Telefonszam" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Lakcim" ColumnName="Lakcim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kinezetek">
+      <EntityTypeMapping TypeName="IsTypeOf(SD_DB.Kinezet)">
+        <MappingFragment StoreEntitySet="Kinezetek">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Kulso" ColumnName="Kulso" />
+          <ScalarProperty Name="Belso" ColumnName="Belso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TargyInfok">
+      <EntityTypeMapping TypeName="IsTypeOf(SD_DB.TargyInfo)">
+        <MappingFragment StoreEntitySet="TargyInfok">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nev" ColumnName="Nev" />
+          <ScalarProperty Name="Tipus" ColumnName="Tipus" />
+          <ScalarProperty Name="Kredit" ColumnName="Kredit" />
+          <ScalarProperty Name="Kovetelmeny" ColumnName="Kovetelmeny" />
+          <ScalarProperty Name="Ponthatar" ColumnName="Ponthatar" />
+          <ScalarProperty Name="Vizsga" ColumnName="Vizsga" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Targyak">
+      <EntityTypeMapping TypeName="IsTypeOf(SD_DB.Targy)">
+        <MappingFragment StoreEntitySet="Targyak">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nev" ColumnName="Nev" />
+          <ScalarProperty Name="ZH" ColumnName="ZH" />
+          <ScalarProperty Name="Beadando" ColumnName="Beadando" />
+          <ScalarProperty Name="Pluszpont" ColumnName="Pluszpont" />
+          <ScalarProperty Name="TargyID" ColumnName="TargyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FelhasznaloKinezet" TypeName="SD_DB.FelhasznaloKinezet" StoreEntitySet="Felhasznalok">
+      <EndProperty Name="Kinezet">
+        <ScalarProperty Name="Id" ColumnName="Kinezet_Id" />
+      </EndProperty>
+      <EndProperty Name="Felhasznalo">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FelhasznaloTargy" TypeName="SD_DB.FelhasznaloTargy" StoreEntitySet="Targyak">
+      <EndProperty Name="Felhasznalo">
+        <ScalarProperty Name="Id" ColumnName="Felhasznalo_Id" />
+      </EndProperty>
+      <EndProperty Name="Targy">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TargyTargyInfo" TypeName="SD_DB.TargyTargyInfo" StoreEntitySet="Targyak">
+      <EndProperty Name="TargyInfo">
+        <ScalarProperty Name="Id" ColumnName="TargyInfo_Id" />
+      </EndProperty>
+      <EndProperty Name="Targy">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SD_SOFT_DAL")]
+[assembly: AssemblyTitle("SD_DB")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SD_SOFT_DAL")]
+[assembly: AssemblyProduct("SD_DB")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7fa51ca4-1692-4911-91fc-2b4ca8be9143")]
+[assembly: Guid("6616073e-3bdc-42f0-bf1b-0ff7c0f72231")]
 
 // Version information for an assembly consists of the following four values:
 //

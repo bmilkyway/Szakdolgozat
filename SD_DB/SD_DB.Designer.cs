@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\bajar\OneDrive\szakdolgozat\SD_SOFT_DAL\SD_SOFT_DAL\edmSDSOFT.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\bajar\OneDrive\szakdolgozat\SDSOFT\SD_DB\SD_DB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

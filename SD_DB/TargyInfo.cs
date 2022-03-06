@@ -7,19 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SD_SOFT_DAL
+namespace SD_DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class enKinezet
+    public partial class TargyInfo
     {
         public int Id { get; set; }
-        public string Belso { get; set; }
-        public string Kulso { get; set; }
-        public string Kep { get; set; }
-        public string Link { get; set; }
+        public string Nev { get; set; }
+        public string Tipus { get; set; }
+        public string Kredit { get; set; }
+        public string Kovetelmeny { get; set; }
+        public string Ponthatar { get; set; }
+        public string Vizsga { get; set; }
     
-        public virtual enFelhasznalo enFelhasznalo { get; set; }
+        public virtual Targy Targy { get; set; }
     }
 }

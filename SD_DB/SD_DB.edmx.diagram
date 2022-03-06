@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a355d3a1310548b8b5a529941126289d" Name="Diagram1" >
+        <EntityTypeShape EntityType="SD_DB.Felhasznalo" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="SD_DB.Kinezet" Width="1.5" PointX="7.75" PointY="1.375" />
+        <EntityTypeShape EntityType="SD_DB.TargyInfo" Width="1.5" PointX="0.5" PointY="4" />
+        <EntityTypeShape EntityType="SD_DB.Targy" Width="1.5" PointX="3.125" PointY="2.75" />
+        <AssociationConnector Association="SD_DB.FelhasznaloKinezet" />
+        <AssociationConnector Association="SD_DB.FelhasznaloTargy" />
+        <AssociationConnector Association="SD_DB.TargyTargyInfo" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

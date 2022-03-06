@@ -7,21 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SD_SOFT_DAL
+namespace SD_DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class enFelvettTargy
+    public partial class Targy
     {
         public int Id { get; set; }
-        public string KurzusId { get; set; }
-        public string FelhasznaloId { get; set; }
-        public string Zh { get; set; }
+        public string Nev { get; set; }
+        public string ZH { get; set; }
         public string Beadando { get; set; }
         public string Pluszpont { get; set; }
+        public string TargyID { get; set; }
     
-        public virtual enTargy enTargy { get; set; }
-        public virtual enFelhasznalo enFelhasznalo { get; set; }
+        public virtual Felhasznalo Felhasznalo { get; set; }
+        public virtual TargyInfo TargyInfo { get; set; }
     }
 }

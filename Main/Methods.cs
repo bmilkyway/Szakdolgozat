@@ -4,9 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SD_SOFT_DAL
+
+namespace Main
 {
-    public class Class1
+    class Methods
     {
+        public void Beolvas()
+        {
+        
+        }
+        
     }
 }

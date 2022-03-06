@@ -7,32 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SD_SOFT_DAL
+namespace SD_DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class enFelhasznalo
+    public partial class Felhasznalo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public enFelhasznalo()
+        public Felhasznalo()
         {
-            this.enFelvettTargy = new HashSet<enFelvettTargy>();
+            this.Targy = new HashSet<Targy>();
         }
     
         public int Id { get; set; }
-        public string Jogosultsag { get; set; }
         public string Felhasznalonev { get; set; }
         public string Jelszo { get; set; }
         public string Nev { get; set; }
-        public System.DateTime SzulDat { get; set; }
+        public string SzulDat { get; set; }
+        public string Telefonszam { get; set; }
         public string Email { get; set; }
-        public string Kinezet { get; set; }
         public string Lakcim { get; set; }
-        public string Egyetem { get; set; }
     
-        public virtual enKinezet enKinezet { get; set; }
+        public virtual Kinezet Kinezet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<enFelvettTargy> enFelvettTargy { get; set; }
+        public virtual ICollection<Targy> Targy { get; set; }
     }
 }

@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SD_SOFT_DAL
+namespace SD_DB
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class cnSDSOFT : DbContext
+    public partial class SD_DBContainer : DbContext
     {
-        public cnSDSOFT()
-            : base("name=cnSDSOFT")
+        public SD_DBContainer()
+            : base("name=SD_DBContainer")
         {
         }
     
@@ -25,9 +25,9 @@ namespace SD_SOFT_DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<enFelhasznalo> enFelhasznalok { get; set; }
-        public virtual DbSet<enKinezet> enKinezetek { get; set; }
-        public virtual DbSet<enTargy> enTargyak { get; set; }
-        public virtual DbSet<enFelvettTargy> enFelvettTargyak { get; set; }
+        public virtual DbSet<Felhasznalo> Felhasznalok { get; set; }
+        public virtual DbSet<Kinezet> Kinezetek { get; set; }
+        public virtual DbSet<TargyInfo> TargyInfok { get; set; }
+        public virtual DbSet<Targy> Targyak { get; set; }
     }
 }
