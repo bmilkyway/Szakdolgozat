@@ -29,5 +29,7 @@ namespace SD_DB
         public virtual DbSet<Kinezet> Kinezetek { get; set; }
         public virtual DbSet<TargyInfo> TargyInfok { get; set; }
         public virtual DbSet<Targy> Targyak { get; set; }
+        public virtual DbSet<Beadando> Beadandok { get; set; }
+        public virtual DbSet<ZH> ZHk { get; set; }
     }
 }

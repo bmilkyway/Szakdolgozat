@@ -4,14 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a355d3a1310548b8b5a529941126289d" Name="Diagram1" >
-        <EntityTypeShape EntityType="SD_DB.Felhasznalo" Width="1.5" PointX="5.25" PointY="0.75" />
+      <Diagram DiagramId="a355d3a1310548b8b5a529941126289d" Name="Diagram1" ZoomLevel="132" >
+        <EntityTypeShape EntityType="SD_DB.Felhasznalo" Width="1.5" PointX="5.5" PointY="0.625" />
         <EntityTypeShape EntityType="SD_DB.Kinezet" Width="1.5" PointX="7.75" PointY="1.375" />
         <EntityTypeShape EntityType="SD_DB.TargyInfo" Width="1.5" PointX="0.5" PointY="4" />
         <EntityTypeShape EntityType="SD_DB.Targy" Width="1.5" PointX="3.125" PointY="2.75" />
         <AssociationConnector Association="SD_DB.FelhasznaloKinezet" />
         <AssociationConnector Association="SD_DB.FelhasznaloTargy" />
         <AssociationConnector Association="SD_DB.TargyTargyInfo" />
+        <EntityTypeShape EntityType="SD_DB.Beadando" Width="1.5" PointX="2.5" PointY="5.75" />
+        <EntityTypeShape EntityType="SD_DB.ZH" Width="1.5" PointX="5.375" PointY="5.25" />
+        <AssociationConnector Association="SD_DB.TargyBeadando" />
+        <AssociationConnector Association="SD_DB.TargyZH" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

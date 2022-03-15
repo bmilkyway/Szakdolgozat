@@ -14,14 +14,22 @@ namespace SD_DB
     
     public partial class Targy
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Targy()
+        {
+            this.Beadando = new HashSet<Beadando>();
+            this.ZH = new HashSet<ZH>();
+        }
+    
         public int Id { get; set; }
         public string Nev { get; set; }
-        public string ZH { get; set; }
-        public string Beadando { get; set; }
-        public string Pluszpont { get; set; }
-        public string TargyID { get; set; }
+        public string TargyId { get; set; }
     
         public virtual Felhasznalo Felhasznalo { get; set; }
         public virtual TargyInfo TargyInfo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Beadando> Beadando { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ZH> ZH { get; set; }
     }
 }

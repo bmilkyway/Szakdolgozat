@@ -67,7 +67,7 @@ namespace Main
             {
                 if(txtPassword.Password=="" || txtUsername.Text=="")
                 {
-                    throw new Exception("Nincs kitölte az összes mező!");
+                    throw new Exception("Nincs kitöltve az összes mező!");
                 }
                 bool van_ilyen_felhasznalo = false;
                 foreach (var x in dB.Felhasznalok)

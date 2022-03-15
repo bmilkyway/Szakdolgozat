@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{35DF2F5A-4FCD-45F4-81C9-C0B80AB5AC38}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SD_DB", "SD_DB\SD_DB.csproj", "{6616073E-3BDC-42F0-BF1B-0FF7C0F72231}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App_Domain", "App_Domain\App_Domain.csproj", "{745212AC-5A00-47E6-9D8F-E268F7CAD804}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{6616073E-3BDC-42F0-BF1B-0FF7C0F72231}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6616073E-3BDC-42F0-BF1B-0FF7C0F72231}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6616073E-3BDC-42F0-BF1B-0FF7C0F72231}.Release|Any CPU.Build.0 = Release|Any CPU
-		{745212AC-5A00-47E6-9D8F-E268F7CAD804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{745212AC-5A00-47E6-9D8F-E268F7CAD804}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{745212AC-5A00-47E6-9D8F-E268F7CAD804}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{745212AC-5A00-47E6-9D8F-E268F7CAD804}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

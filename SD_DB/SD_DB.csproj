@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beadando.cs">
+      <DependentUpon>SD_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Felhasznalo.cs">
       <DependentUpon>SD_DB.tt</DependentUpon>
     </Compile>
@@ -78,6 +81,9 @@
     <Compile Include="TargyInfo.cs">
       <DependentUpon>SD_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ZH.cs">
+      <DependentUpon>SD_DB.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="SD_DB.edmx">
@@ -99,6 +105,7 @@
       <DependentUpon>SD_DB.edmx</DependentUpon>
     </Content>
     <Content Include="SD_DB.edmx.sql" />
+    <Content Include="SD_DB.edmx2.sql" />
     <Content Include="SD_DB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SD_DB.cs</LastGenOutput>
